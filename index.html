@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Vale - CV</title>
+    
+    <style>
+        /* Variáveis CSS para controle dinâmico da cor base */
+        :root {
+            --primary-color: #374137;
+            --primary-dark: #1a365d;
+            --bg-light: #f0fdfa;
+            --border-light: #ccfbf1;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+            line-height: 1.5;
+            font-size: 10pt;
+            background-color: #f4f6f8;
+        }
+
+        /* Container Principal do Currículo */
+        .cv-page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 12mm 12mm;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header Style */
+        .header-container {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .header-main-left {
+            padding-bottom: 8px;
+            vertical-align: bottom;
+        }
+
+        .header-main-right {
+            padding-bottom: 12px;
+            text-align: right;
+            vertical-align: bottom;
+        }
+
+        .name {
+            font-size: 22pt;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 11pt;
+            font-weight: 500;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .contact-info-row {
+            padding-bottom: 10px;
+        }
+
+        .contact-info {
+            font-size: 9.5pt;
+            color: #64748b;
+        }
+
+        .contact-item {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .btn-download {
+            background-color: #f1f5f9;
+            color: #627288;
+            border: 1px solid #cbd5e1;
+            padding: 6px 14px;
+            font-size: 8.5pt;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-download:hover {
+            background-color: #e2e8f0;
+            color: #334155;
+            border-color: #94a3b8;
+        }
+
+        /* Layout Structure via Tables */
+        .main-layout {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .left-column {
+            width: 68%;
+            padding-right: 25px;
+            vertical-align: top;
+        }
+
+        .right-column {
+            width: 32%;
+            padding-left: 20px;
+            border-left: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 11.5pt;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .right-column h2 {
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        /* Profile Summary */
+        .profile-text {
+            color: #475569;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Experience Block */
+        .exp-item {
+            margin-bottom: 12px;
+        }
+
+        .exp-header {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 11pt;
+        }
+
+        .company-name {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .exp-date {
+            text-align: right;
+            color: #64748b;
+            font-size: 9.5pt;
+            vertical-align: top;
+        }
+
+        .exp-bullets {
+            margin: 5px 0 0 0;
+            padding-left: 18px;
+            color: #475569;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 4px;
+        }
+
+        /* Sidebar Elements */
+        .sidebar-section {
+            margin-bottom: 10px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 9pt;
+            margin-right: 3.5px;
+            margin-bottom: 6px;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tech-badge {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            border: 1px solid var(--border-light);
+        }
+
+        .edu-item {
+            margin-bottom: 12px;
+        }
+
+        .edu-degree {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 9pt;
+        }
+
+        .edu-institution {
+            color: #64748b;
+            font-size: 8.5pt;
+        }
+
+        .edu-date {
+            color: #94a3b8;
+            font-size: 8pt;
+        }
+
+        .cert-item {
+            margin-bottom: 10px;
+        }
+
+        .cert-degree {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 9pt;
+        }
+
+        .cert-institution {
+            color: #64748b;
+            font-size: 8.5pt;
+        }
+
+        .lang-item {
+            margin-bottom: 6px;
+            font-size: 9pt;
+        }
+
+        .lang-name {
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .lang-level {
+            color: #64748b;
+            font-style: italic;
+            float: none;
+        }
+
+        @media print {
+            html, body { 
+                background-color: #ffffff;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .cv-page { 
+                margin: 0 !important; 
+                box-shadow: none !important; 
+                padding: 12mm 12mm !important; 
+                width: 210mm !important; 
+                height: 297mm !important; 
+            }
+            .btn-download { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-page" id="cv-content">
+        
+        <table class="header-container">
+            <tr>
+                <td class="header-main-left">
+                    <h1 class="name" id="text-name">Lucas Lyoji Omokawa do Vale</h1>
+                    <div class="subtitle" id="text-subtitle">Senior Product Manager</div>
+                </td>
+                <td class="header-main-right">
+                    <button class="btn-download" onclick="downloadPDF()" id="btn-text">
+                        <span id="btn-string">Baixar em PDF</span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="contact-info-row">
+                    <div class="contact-info">
+                        <span class="contact-item" id="text-location"> São Paulo, SP</span>
+                        <span class="contact-item" id="text-phone">(11) 99999-9999</span>
+                        <span class="contact-item" id="text-email">email@gmail.com</span>
+                        <span class="contact-item"> linkedin.com/in/lucaslyoji</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="main-layout">
+            <tr>
+                <td class="left-column">
+                    
+                    <h2 id="title-profile">Perfil Profissional</h2>
+                    <div class="profile-text" id="text-profile">
+                        </div>
+
+                    <h2 id="title-experience">Experiência Profissional</h2>
+
+                    <div class="exp-item">
+                        <table class="exp-header">
+                            <tr>
+                                <td class="job-title" id="job1-title">Senior Product Manager</td>
+                                <td class="exp-date" id="job1-date">Jan 2024 – Jan 2025</td>
+                            </tr>
+                            <tr>
+                                <td class="company-name" colspan="2">Stone co</td>
+                            </tr>
+                        </table>
+                        <ul class="exp-bullets" id="job1-bullets">
+                            </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <table class="exp-header">
+                            <tr>
+                                <td class="job-title" id="job2-title">Group Product Manager</td>
+                                <td class="exp-date" id="job2-date">Jul 2022 – Jan 2024</td>
+                            </tr>
+                            <tr>
+                                <td class="company-name" colspan="2">Pagar.me</td>
+                            </tr>
+                        </table>
+                        <ul class="exp-bullets" id="job2-bullets">
+                            </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <table class="exp-header">
+                            <tr>
+                                <td class="job-title" id="job3-title">Product owner</td>
+                                <td class="exp-date" id="job3-date">Apr 2021 – Jul 2022</td>
+                            </tr>
+                            <tr>
+                                <td class="company-name" colspan="2">Pagar.me</td>
+                            </tr>
+                        </table>
+                        <ul class="exp-bullets" id="job3-bullets">
+                            </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <table class="exp-header">
+                            <tr>
+                                <td class="job-title" id="job4-title">Integrations analyst</td>
+                                <td class="exp-date" id="job4-date">Sep 2019 – Apr 2021</td>
+                            </tr>
+                            <tr>
+                                <td class="company-name" colspan="2">Pagar.me</td>
+                            </tr>
+                        </table>
+                        <ul class="exp-bullets" id="job4-bullets">
+                            </ul>
+                    </div>
+
+                </td>
+
+                <td class="right-column">
+                    
+                    <div class="sidebar-section">
+                        <h2 id="title-skills">Competências</h2>
+                        <div id="skills-tags"></div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h2 id="title-tools">Ferramentas Tech</h2>
+                        <div id="tools-tags"></div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h2 id="title-education">Formação</h2>
+                        <div id="education-content"></div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h2 id="title-certifications">Certificações</h2>
+                        <div id="certifications-content"></div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h2 id="title-languages">Idiomas</h2>
+                        <div id="languages-content"></div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // 1. DICIONÁRIO DE TEXTOS BILINGUE (PT-BR / EN-US)
+        const i18n = {
+            'pt': {
+                btn: "Baixar em PDF",
+                subtitle: "Senior Product Manager",
+                location: "São Paulo, SP",
+                titleProfile: "Perfil Profissional",
+                titleExperience: "Experiência Profissional",
+                titleSkills: "Competências",
+                titleTools: "Ferramentas Tech",
+                titleEducation: "Formação",
+                titleCertifications: "Certificações",
+                titleLanguages: "Idiomas",
+                profile: "Senior Product Manager multidiciplinar com sólida atuação na coordenação de grandes equipes e arquiteturas de software complexas. Líder dedicado, com foco em produtividade, colaboração e processos ágeis de desenvolvimento. Entusiasta de tecnologia, visionário e especializado na criação de produtos digitais.",
+                job1Title: "Senior Product Manager",
+                job1Date: "Jan 2024 – Jan 2025",
+                job1Bullets: [
+                    "Responsável pelos produtos de integração com plataformas de código fechado (VTEX, Shopify e Nuvemshop).",
+                    "Produtos responsáveis pela entrada de um TPV de centenas de milhões de reais por mês para milhares de clientes, mantendo uptime de 99,9%.",
+                    "<b>Principais projetos:</b> Go-to-market App Shopify, VTEX Sellers"
+                ],
+                job2Title: "Group Product Manager",
+                job2Date: "Jul 2022 – Jan 2024",
+                job2Bullets: [
+                    "Responsável pelos times da vertical de Platforms, pela gestão de key stakeholders internos e externos e pela definição e acompanhamento de OKRs",
+                    "Liderança e coordenação de 2 Product managers dentro de times multidiciplinares (Design, Business, and Tech)",
+                    "<b>Principais projetos:</b> WhatsApp pay, Migração VTEX v3, Refatoração Hub-Pagar.me"
+                ],
+                job3Title: "Product owner",
+                job3Date: "Abr 2021 – Jul 2022",
+                job3Bullets: [
+                    "Responsável pelos produtos de integração com plataformas opensource (Magento e Wordpress)",
+                    "Atuação na estruturação do time de Produto da tribo",
+                    "<b>Principais projetos:</b> Go-to-market plugin Pagar.me-Woocommerce, Split de pagamentos Magento 2"
+                ],
+                job4Title: "Analista de Integrações",
+                job4Date: "Set 2019 – Abr 2021",
+                job4Bullets: [
+                    "Responsável pelo atendimento N2 de clientes Pagar.me, com foco em problemas complexos relacionados às integrações com nossos produtos.",
+                    "Realização de correções de bugs e melhorias nos SDKs (PHP, Ruby, Node.js, Java e C#), módulos para plataformas (VTEX, Magento e WordPress) e API Pagar.me."
+                ],
+                skills: ["Business Strategy", "Gestão de stakeholders", "Otimização de Processos", "Product Discovery", "Analise de dados", "Metodologias Ágeis"],
+                tools: ["Jira / Confluence", "Notion", "Miro / Figma", "DBeaver / Metabase", "AI Chatbots", "Postman", "Excel Avançado", "Google Workspace", "Slack"],
+                education: [
+                    { degree: "Graduação em Engenharia Mecânica", inst: "Universidade de São Paulo", date: "Concluído em 2018" },
+                    { degree: "Intercâmbio em Engenharia", inst: "Universidade do Porto", date: "Concluído em 2018" }
+                ],
+                certifications: [
+                    { name: "Curso de Product management", inst: "PM3" },
+                    { name: "Masterclass Conectar roadmap com estratégia", inst: "ProductHaus" }
+                ],
+                languages: [
+                    { name: "Português", level: "Nativo" },
+                    { name: "Inglês", level: "Fluente" },
+                    { name: "Espanhol", level: "Intermediário" }
+                ]
+            },
+            'en': {
+                btn: "Download as PDF",
+                subtitle: "Senior Product Manager",
+                location: "São Paulo, Brazil",
+                titleProfile: "Professional Profile",
+                titleExperience: "Professional Experience",
+                titleSkills: "Core Skills",
+                titleTools: "Tech Stack",
+                titleEducation: "Education",
+                titleCertifications: "Certifications",
+                titleLanguages: "Languages",
+                profile: "Multidisciplinary Senior Product Manager with solid experience coordinating large teams and complex software architectures. Dedicated leader focused on productivity, collaboration, and agile development processes. Technology enthusiast, visionary, and specialized in building digital products.",
+                job1Title: "Senior Product Manager",
+                job1Date: "Jan 2024 – Jan 2025",
+                job1Bullets: [
+                    "Responsible for the integration products with closed-source platforms (VTEX, Shopify, and Nuvemshop).",
+                    "Products responsible for processing hundreds of millions of BRL in monthly TPV for thousands of customers, maintaining 99.9% uptime.",
+                    "<b>Key projects:</b> Shopify App go-to-market and VTEX Sellers."
+                ],
+                job2Title: "Group Product Manager",
+                job2Date: "Jul 2022 – Jan 2024",
+                job2Bullets: [
+                    "Responsible for the Platforms vertical teams, managing internal and external key stakeholders, and defining and tracking OKRs.",
+                    "Led and coordinated 2 Product Managers within multidisciplinary teams (Design, Business, and Tech).",
+                    "<b>Key projects:</b> WhatsApp Pay, VTEX v3 Migration, and Hub-Pagar.me Refactoring."
+                ],
+                job3Title: "Product owner",
+                job3Date: "Apr 2021 – Jul 2022",
+                job3Bullets: [
+                    "Responsible for the integration products with open-source platforms (Magento and WordPress).",
+                    "Contributed to structuring the tribe’s product team.",
+                    "<b>Key projects:</b> Pagar.me WooCommerce plugin go-to-market and Magento 2 Payment Split."
+                ],
+                job4Title: "Integrations analyst",
+                job4Date: "Sep 2019 – Apr 2021",
+                job4Bullets: [
+                    "Responsible for Pagar.me’s Level 2 customer support, focused on solving complex issues related to product integrations.",
+                    "Implemented bug fixes and improvements for SDKs (PHP, Ruby, Node.js, Java, and C#), platform modules (VTEX, Magento, and WordPress), and the Pagar.me API."
+                ],
+                skills: ["Business Strategy", "Stakeholder management", "Process Optimization", "Product Discovery", "Data analysis", "Agile Methodologies"],
+                tools: ["Jira / Confluence", "Notion", "Miro / Figma", "DBeaver / Metabase", "AI Chatbots", "Postman", "Advanced Excel", "Google Workspace", "Slack"],
+                education: [
+                    { degree: "Masters in Mechanical Engineering", inst: "University of São Paulo", date: "Graduated 2018" },
+                    { degree: "Exchange program in Engineering", inst: "University of Porto", date: "Graduated 2018" }
+                ],
+                certifications: [
+                    { name: "Product management course", inst: "PM3" },
+                    { name: "Masterclass Connect roadmap to strategy", inst: "ProductHaus" }
+                ],
+                languages: [
+                    { name: "Portuguese", level: "Native" },
+                    { name: "English", level: "Fluent / Advanced" },
+                    { name: "Spanish", level: "Intermediate" }
+                ]
+            }
+        };
+
+        // 2. FUNÇÃO AUXILIAR PARA GERAR CORES CLARAS AUTOMATICAMENTE
+        function hexToRgbLight(hex, opacity) {
+            let c;
+            if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+                c= hex.substring(1).split('');
+                if(c.length== 3){
+                    c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+                }
+                c= '0x'+c.join('');
+                return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+            }
+            return hex;
+        }
+
+        // 3. CAPTURA E PROCESSAMENTO DOS QUERY PARAMS
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        let langParam = urlParams.get('lang');
+        if (langParam !== 'en' && langParam !== 'pt') {
+            langParam = 'pt'; 
+        }
+        const textData = i18n[langParam];
+
+        const colorParam = urlParams.get('color');
+        if (colorParam) {
+            const hexColor = colorParam.startsWith('#') ? colorParam : `#${colorParam}`;
+            document.documentElement.style.setProperty('--primary-color', hexColor);
+            document.documentElement.style.setProperty('--primary-dark', hexColor); 
+            document.documentElement.style.setProperty('--bg-light', hexToRgbLight(hexColor, 0.08));
+            document.documentElement.style.setProperty('--border-light', hexToRgbLight(hexColor, 0.2));
+        }
+
+        const phoneParam = urlParams.get('phone');
+        if (phoneParam) {
+            const digits = phoneParam.replace(/\D/g, ''); 
+            let formattedPhone = phoneParam; 
+            
+            if (digits.length === 11) { 
+                formattedPhone = `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+            } else if (digits.length === 10) { 
+                formattedPhone = `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+            }
+            
+            document.getElementById('text-phone').innerHTML = formattedPhone;
+        }
+
+        const emailParam = urlParams.get('email');
+        if (emailParam) {
+            let formattedEmail = emailParam.trim();
+            
+            if (!formattedEmail.includes('@')) {
+                formattedEmail += '@gmail.com';
+            }
+            
+            document.getElementById('text-email').innerHTML = formattedEmail;
+        }
+
+        // 4. RENDERIZAÇÃO DOS TEXTOS NO HTML
+        document.getElementById('btn-string').innerText = textData.btn;
+        document.getElementById('text-subtitle').innerText = textData.subtitle;
+        document.getElementById('text-location').innerText = textData.location;
+        document.getElementById('title-profile').innerText = textData.titleProfile;
+        document.getElementById('title-experience').innerText = textData.titleExperience;
+        document.getElementById('title-skills').innerText = textData.titleSkills;
+        document.getElementById('title-tools').innerText = textData.titleTools;
+        document.getElementById('title-education').innerText = textData.titleEducation;
+        document.getElementById('title-certifications').innerText = textData.titleCertifications;
+        document.getElementById('title-languages').innerText = textData.titleLanguages;
+        document.getElementById('text-profile').innerText = textData.profile;
+
+        // Experiências
+        document.getElementById('job1-title').innerText = textData.job1Title;
+        document.getElementById('job1-date').innerText = textData.job1Date;
+        document.getElementById('job1-bullets').innerHTML = textData.job1Bullets.map(b => `<li>${b}</li>`).join('');
+
+        document.getElementById('job2-title').innerText = textData.job2Title;
+        document.getElementById('job2-date').innerText = textData.job2Date;
+        document.getElementById('job2-bullets').innerHTML = textData.job2Bullets.map(b => `<li>${b}</li>`).join('');
+
+        document.getElementById('job3-title').innerText = textData.job3Title;
+        document.getElementById('job3-date').innerText = textData.job3Date;
+        document.getElementById('job3-bullets').innerHTML = textData.job3Bullets.map(b => `<li>${b}</li>`).join('');
+
+        document.getElementById('job4-title').innerText = textData.job4Title;
+        document.getElementById('job4-date').innerText = textData.job4Date;
+        document.getElementById('job4-bullets').innerHTML = textData.job4Bullets.map(b => `<li>${b}</li>`).join('');
+
+        // Tags e Badges
+        document.getElementById('skills-tags').innerHTML = textData.skills.map(s => `<span class="skill-tag">${s}</span>`).join('');
+        document.getElementById('tools-tags').innerHTML = textData.tools.map(t => `<span class="skill-tag tech-badge">${t}</span>`).join('');
+
+        // Formação e Idiomas
+        document.getElementById('education-content').innerHTML = textData.education.map(e => `
+            <div class="edu-item">
+                <div class="edu-degree">${e.degree}</div>
+                <div class="edu-institution">${e.inst}</div>
+                <div class="edu-date">${e.date}</div>
+            </div>
+        `).join('');
+
+        document.getElementById('certifications-content').innerHTML = textData.certifications.map(e => `
+            <div class="cert-item">
+                <div class="cert-degree">${e.name}</div>
+                <div class="cert-institution">${e.inst}</div>
+            </div>
+        `).join('');
+
+        document.getElementById('languages-content').innerHTML = textData.languages.map(l => `
+            <div class="lang-item">
+                <span class="lang-name">${l.name} - </span>
+                <span class="lang-level">${l.level}</span>
+            </div>
+        `).join('');
+
+        // 5. FUNÇÃO PARA GERAR E BAIXAR O PDF SEM O BOTÃO
+        function downloadPDF() {
+            window.print()
+        }
+    </script>
+</body>
+</html>
